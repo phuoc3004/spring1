@@ -67,7 +67,7 @@ public class PaymentController {
 
 //            Calendar cld = Calendar.getInstance();
 
-            Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+            Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
             SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
             String vnp_CreateDate = formatter.format(cld.getTime());
             vnp_Params.put("vnp_CreateDate", vnp_CreateDate);
