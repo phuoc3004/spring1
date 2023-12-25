@@ -67,7 +67,7 @@ public class PaymentController {
 
 //            Calendar cld = Calendar.getInstance();
 
-            Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT"));
+            Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
             SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
             String vnp_CreateDate = formatter.format(cld.getTime());
             vnp_Params.put("vnp_CreateDate", vnp_CreateDate);
@@ -76,7 +76,8 @@ public class PaymentController {
             String vnp_ExpireDate = formatter.format(cld.getTime());
             vnp_Params.put("vnp_ExpireDate", vnp_ExpireDate);
 //            vnp_Params.put("address_delivery", orderRequestDto.getAddressDelivery());
-
+            System.out.println('-----create------------------------> ' + vnp_CreateDate)
+            System.out.println('------expireDate----------------------->' +  vnp_ExpireDate)
 
             List<String> fieldNames = new ArrayList<>(vnp_Params.keySet());
             Collections.sort(fieldNames);
