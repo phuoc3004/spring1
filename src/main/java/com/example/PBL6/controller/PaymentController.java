@@ -63,7 +63,7 @@ public class PaymentController {
             vnp_Params.put("vnp_ReturnUrl", VNPayConfig.vnp_ReturnUrl);
             vnp_Params.put("vnp_IpAddr", VNPayConfig.ipAddress);
 
-            Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));
+            Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-5"));
 //            Calendar cld = Calendar.getInstance();
 
             SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
