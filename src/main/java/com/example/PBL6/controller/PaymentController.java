@@ -72,10 +72,11 @@ public class PaymentController {
             String vnp_CreateDate = formatter.format(cld.getTime());
             vnp_Params.put("vnp_CreateDate", vnp_CreateDate);
 
-            cld.add(Calendar.MINUTE, 15);
+            cld.add(Calendar.HOUR, 15);
             String vnp_ExpireDate = formatter.format(cld.getTime());
             vnp_Params.put("vnp_ExpireDate", vnp_ExpireDate);
 //            vnp_Params.put("address_delivery", orderRequestDto.getAddressDelivery());
+            System.out.println("--------------------> + cld" + cld);
             System.out.println("-----create------------------------> " + vnp_CreateDate);
             System.out.println("------expireDate----------------------->" +  vnp_ExpireDate);
             List<String> fieldNames = new ArrayList<>(vnp_Params.keySet());
