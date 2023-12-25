@@ -22,6 +22,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import java.util.*;
 
@@ -63,15 +65,17 @@ public class PaymentController {
             vnp_Params.put("vnp_ReturnUrl", VNPayConfig.vnp_ReturnUrl);
             vnp_Params.put("vnp_IpAddr", VNPayConfig.ipAddress);
 
-            Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-5"));
 //            Calendar cld = Calendar.getInstance();
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
-            String vnp_CreateDate = formatter.format(cld.getTime());
+            LocalDateTime cld = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+            String vnp_CreateDate = cld.format(formatter);
             vnp_Params.put("vnp_CreateDate", vnp_CreateDate);
 
-            cld.add(Calendar.MINUTE, 15);
-            String vnp_ExpireDate = formatter.format(cld.getTime());
+// Thêm 60 giờ cho cld
+            cld = cld.plusMinutes(15);
+
+            String vnp_ExpireDate = cld.format(formatter);
             vnp_Params.put("vnp_ExpireDate", vnp_ExpireDate);
 
 //            vnp_Params.put("address_delivery", orderRequestDto.getAddressDelivery());
