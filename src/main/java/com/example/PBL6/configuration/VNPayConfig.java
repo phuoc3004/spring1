@@ -23,7 +23,7 @@ public class VNPayConfig {
     public static String bank = "NCB";
     public static String moneyUnit = "VND";
     public static String locale = "vn";
-    public static String ipAddress = "127.0.0.1";
+    public static String ipAddress = "https://pbl6.up.railway.app";
     public static String orderType = "other";
 
 
